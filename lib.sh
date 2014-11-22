@@ -40,11 +40,15 @@ generate_command(){
     SRC=$3
     FUNCTION=$4
     
+    TMP=/tmp/mp3car-$$.mp3
     LEN=${#ORGDIR}
     DST=$DSTDIR/${SRC:$LEN}
     
-    OUT="$FUNCTION $DST"
+    CONVERT="$FUNCTION $SRC $TMP"
     eval $OUT
+    FULLDSTDIR=‘dirname $DSTDIR‘/'dirname $SRC‘
+    MDIR="mkdir -p $FULLDSTDIR"
+    MOVE="mv $TMP $DST"
 }
 #Exemple: generate_command "/var/" "/tmp" "/var/log/daemon.log" "echo"
 
