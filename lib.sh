@@ -46,7 +46,7 @@ generate_command(){
     
     CONVERT="$FUNCTION $SRC $TMP"
     eval $OUT
-    FULLDSTDIR=‘dirname $DSTDIR‘/'dirname $SRC‘
+    FULLDSTDIR=‘dirname $DSTDIR‘/‘dirname $SRC‘
     MDIR="mkdir -p $FULLDSTDIR"
     MOVE="mv $TMP $DST"
 }
